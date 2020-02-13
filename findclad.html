@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Моя страничка</title>
+</head>
+<body>
+	<h1 id="main-heading">Найди клад</h1>
+	<img id="map" width=800 height=800 src="http://nostarch.com/images/treasuremap.png">
+	<p id="distance"></p>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
+		
+	<script type="text/javascript">
+
+	//функция, которая определяет рандомное число
+	function getRandomNumber(size) {
+		return Math.floor(Math.random()*size);
+	}
+
+	//функция, которая вычисляет расстояние между кладом и кликом пользователя
+	function getDistance(event, target) {
+		var diffX = event.offsetX - target.x;
+		var diffY = event.offsetY - target.y;
+		return Math.sqrt((diffX*diffX) + (diffY*diffY));
+	};
+
+	//функция, которая дает подсказку пользователю как близко он к кладу
+	function getDistanceHint(distance) {
+		if (distance < 200) {
+			return "Обожешься";
+		} else if (distance < 300) {
+			return "Очень горячо";
+		} else if (distance < 400) {
+			return "Горячо " + clicks;
+		} else if (distance < 500) {
+			return "Тепло";
+		} else if (distance < 600) {
+			return "Холодно " + clicks;
+		} else if (distance < 700) {
+			return "Очень холодно";
+		} else {
+			return "Замерзнешь!";
+		}
+	};
+
+	//объявляю переменные, указывает максимальный размер ширины и длины объекта, т.е. рисука
+	var width = 800;
+	var height = 800;
+	var clicks = 0;
+
+	//получается место клада, при помощи функции getRandomNumber генерируем местонахождение клада
+	var target = {
+		x: getRandomNumber(width),
+		y: getRandomNumber(height)
+	};
+
+	//создаем обработчик кликов, который увеличивает число кликов при каждом клике,  определяет разницу между кладом и кликом пользователя и дает подсказку. Если расстояние меньше 8 пикселей, то объявляем его победителем и показываем число кликов.
+
+	$("#map").click(function (event) {
+		clicks++;
+
+		var distance = getDistance(event, target);
+		var distanceHint = getDistanceHint(distance);
+
+		$("#distance").text(distanceHint);
+
+		if (clicks >= 10) {
+			alert("КОНЕЦ ИГРЫ " + clicks);
+		}
+
+		if (distance < 100) {
+		alert("Вы победили! " + clicks);
+		}
+	});
+
+	
+	
+
+	
+
+	
+
+
+		
+
+	</script>
+</body>
+</html>

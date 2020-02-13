@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Моя страничка</title>
+</head>
+<body>
+	<h1 id="main-heading">Хэй</h1>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
+		
+	<script type="text/javascript">
+		
+		var friendsName = [
+		"Monica",
+		"Chandler",
+		"Ross"
+		];
+
+		for (var i = 0; i < friendsName.length; i++) {
+			var name = friendsName[i];
+			$("body").append("<p>" + name + " лучший!" + "</p>");
+			
+
+		}
+		$("p").hide().fadeIn(1000);
+
+		$("h1").text("Моя друзья");
+
+		
+	</script>
+</body>
+</html>

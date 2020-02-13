@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Моя страничка</title>
+</head>
+<body>
+	<h1 id="main-heading">Хэй</h1>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
+		
+	<script type="text/javascript">
+
+		/*function clickHandler(event) {
+			$("#main-heading").offset({left: event.pageX, top: event.pageY}); 
+		};
+		
+		$("html").mousemove(clickHandler);*/
+		var leftOffset = 0;
+		var topOffset = 0;
+
+		function moveHeading() {
+			if ((leftOffset === 0)&&(topOffset ===0 )) {
+				leftOffset = 200;
+				topOffset = 0;
+			} else if ((leftOffset === 200 )&&(topOffset ===0 )) {
+				leftOffset = 200;
+				topOffset = 200;
+			} else if ((leftOffset === 200 )&&(topOffset ===200 )) {
+				leftOffset = 0;
+				topOffset = 200;
+			} else if ((leftOffset === 0 )&&(topOffset ===200 )) {
+				leftOffset = 0;
+				topOffset = 0;
+			} else {
+				console.log("сломалось");
+			}
+
+			$("#main-heading").offset({left: leftOffset, top: topOffset});
+		}
+
+		
+		var intervalId = setInterval(moveHeading, 3000);
+
+		function clickHandler(event) {
+			 setInterval(moveHeading, 100)
+		};
+		
+		$("#main-heading").click(clickHandler);
+
+		
+
+	</script>
+</body>
+</html>

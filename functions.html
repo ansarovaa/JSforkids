@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Моя страничка</title>
+</head>
+<body>
+	<h1>Хэй</h1>
+	<p>Моя страница</p>
+	<p>Да</p>
+	<p><a href="http://www.epam.com" title="ТЫК">Нажми</a> ,чтобы найти работу</p>
+	<script type="text/javascript">
+		var ourFirstFunction = function () {
+			console.log("Hello world!");
+		};
+
+		ourFirstFunction();
+
+		var sayHelloTo = function (name) {
+			console.log("приветик, " + name);
+		};
+
+		sayHelloTo("Анар");
+
+		/*var drawCats = function (times, whatToDraw) {
+			for (var i = 0; i < times; i++) {
+				console.log(i + whatToDraw);
+			}
+		};
+
+		var userDraw = prompt();
+		drawCats(3, userDraw);*/
+
+		var double = function(number) {
+			return number *2;
+		};
+
+		double(6);
+
+		var randomWords = [
+			"киркоров",
+			"сука"
+		];
+
+		var randomWordsPicker = function(words) {
+			return words[Math.floor(Math.random()*words.length)];
+		};
+
+		
+
+		var randomNames = [
+			"Анар",
+			"Серик",
+			"Коля"
+		];
+
+		var randomAdjective = [
+			"красивый",
+			"умный"
+		];
+
+		var stringRandom = "У нас будет " + randomWordsPicker(randomAdjective) + " ,которого будут звать - " + randomWordsPicker(randomNames);
+		stringRandom;
+
+
+
+	</script>
+</body>
+</html>

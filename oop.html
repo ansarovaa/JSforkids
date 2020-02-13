@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Моя страничка</title>
+</head>
+<body>
+	<h1 id="main-heading">Найди клад</h1>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
+		
+	<script type="text/javascript">
+
+		var dog = {
+			name: "Grisha",
+			isAwesome: true
+		};
+
+		dog.bark = function(){
+			console.log("Гав " + this.name);
+		};
+
+		dog.bark();
+
+		function speak() {
+			console.log(this.sound + " Меня зовут " + this.name);
+		};
+
+		var cat = {
+			name: "Кошка",
+			sound: "Мяу",
+			speak: speak
+		}
+		
+		cat.speak();
+
+		var car = new Car (100, 200);
+
+	</script>
+</body>
+</html>

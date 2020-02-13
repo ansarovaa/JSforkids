@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Моя страничка</title>
+</head>
+<body>
+	<h1>Хэй</h1>
+	<p>Моя страница</p>
+	<p>Да</p>
+	<p><a href="http://www.epam.com" title="ТЫК">Нажми</a> ,чтобы найти работу</p>
+	<script type="text/javascript">
+		function pickWord(words) {
+			var word = words[Math.floor(Math.random()*words.length)];
+			return word;
+		}
+
+		function setupAnswerArray(word) {
+			var answerArray = [];
+			pickWord(["киркоров", "анар"]);
+		    for (var i = 0; i < word.length; i++) {
+			answerArray[i] = "_";
+
+			return answerArray;
+		   }
+	    }
+
+	    function showPlayerProgress(answerArray) {
+	    	var remainingLetters = word.length;
+	    }
+
+		function updateGameState(guess, word, answerArray) {
+			var numberOfTries = 0;
+
+		while ((remainingLetters > 0)&&(numberOfTries <=2)) {
+			alert(answerArray.join(" "));
+			var guess = prompt("Угадайте букву или нажмите отмена, чтобы выйти из игры");
+			if (guess === null) {
+				break;
+			} else if (guess.length !== 1) {
+				alert("Введите только одну букву");
+			} else {
+				for (var j = 0; j < word.length; j++) {
+					if (word[j] === guess.toLowerCase()) {
+						answerArray[j] = guess.toLowerCase();
+						remainingLetters--;
+					}
+				}
+
+			}
+			
+			numberOfTries++;
+		}
+
+		alert(answerArray.join(" "));
+		}	
+		
+		function showAnswerAndCongratulatePlayer(answerArray) {
+			alert("Отлично! Это слово " + word);
+		}
+
+		
+		setupAnswerArray();
+		
+	</script>
+</body>
+</html>
