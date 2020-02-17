@@ -5,7 +5,7 @@
 	<title>Змейка</title>
 </head>
 <body>
-	<canvas id="canvas" width="400" height="400"></canvas>
+	<canvas id="canvas" width="500" height="500"></canvas>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.js"></script>
 		
 	<script type="text/javascript">
@@ -39,7 +39,6 @@
 		};
 
 		function gameOver() {
-			clearInterval(intervalId);
 			ctx.font = "60px Courier";
 			ctx.fillStyle = "Black";
 			ctx.textAlign = "center";
@@ -93,9 +92,22 @@
 			this.nextDirection = "right";
 		};
 
+		var colors = [
+		"Red",
+		"Orange",
+		"Yellow",
+		"Green",
+		"LightSeaGreen",
+		"Blue",
+		"Violet"
+		];
+
+		var animationTime = 100;
+
 		Snake.prototype.draw = function() {
 			for (var i = 0; i < this.segments.length; i++) {
-				this.segments[i].drawSquare("Blue");
+				color = colors[Math.floor(Math.random()*colors.length)];
+				this.segments[i].drawSquare(color);
 			}
 		};
 
@@ -124,6 +136,7 @@
 
 			if (newHead.equal(apple.position)) {
 				score++;
+				animationTime -= 10;
 				apple.move();
 			} else {
 				this.segments.pop();
@@ -179,14 +192,19 @@
 		var snake = new Snake();
 		var apple = new Apple();
 
-		var intervalId = setInterval(function(){
+		var gameLoop = function() {
 			ctx.clearRect(0,0,width,height);
 			drawScore();
 			snake.move();
 			snake.draw();
 			apple.draw();
 			drawBorder();
-		}, 100);
+			setTimeout(gameLoop, animationTime);
+		};
+
+		gameLoop();
+			
+		
 
 		var directions = {
 			37: "left",
